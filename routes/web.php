@@ -14,5 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
+});
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::post('/login', function (Request $request) {
+    $user = [
+        'login' => $request -> input('login'),
+        'password' => $request -> input('password')
+    ];
+    
+    return view('welcome', ['user' => $user]);
 });

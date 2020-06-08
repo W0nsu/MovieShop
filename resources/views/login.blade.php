@@ -81,12 +81,16 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Login
                 </div>
 
                 <div class="links">
-                    <div>{{$user['login']}}</div>
-                    <div>{{$user['passowrd']}}</div>
+                    <form action="login" method="post">
+                        @csrf
+                        <input type="text" placeholder="Login" name="login">
+                        <input type="password" placeholder="Password" name="password">
+                        <button type="submit">Login!</button>
+                    </form>
                 </div>
             </div>
         </div>
