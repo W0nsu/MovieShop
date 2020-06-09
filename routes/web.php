@@ -17,8 +17,11 @@ Route::get('/', function () {
     return redirect('/login');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
+Auth::routes();
 
-Route::post('/login', 'MainController@returnUser');
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
