@@ -86,7 +86,7 @@
 
                 <div class="links">
                     <div>{{$user['login']}}</div>
-                    <div>{{$user['passowrd']}}</div>
+                    <div>{{$user['password']}}</div>
                 </div>
             </div>
         </div>

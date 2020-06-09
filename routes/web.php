@@ -21,11 +21,4 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::post('/login', function (Request $request) {
-    $user = [
-        'login' => $request -> input('login'),
-        'password' => $request -> input('password')
-    ];
-    
-    return view('welcome', ['user' => $user]);
-});
+Route::post('/login', 'MainController@returnUser');
