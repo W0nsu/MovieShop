@@ -23,3 +23,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/home/{genre}', 'HomeController@getByGenre')->name('home');
 
+Route::get('/home/Add-to-cart/{id}', 'HomeController@getAddToCart')->name('add');
+
+Route::get('/home/shopCart', 'HomeController@getCart')->name('shopCart');
