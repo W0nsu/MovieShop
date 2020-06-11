@@ -31,7 +31,9 @@ class HomeController extends Controller
     }
 
     public function getByGenre(Request $request){
-        $category = $request -> input('genre');
+        $category = $request -> path();
+        $category = substr($category, 5);
+        error_log($category);
         $moviesByGenre = DB::table('movies') -> where('category', $category) -> get();
         $genres = HomeController::getGenres();
         return view('home', ['movies' => $moviesByGenre, 'genres' => $genres]);
