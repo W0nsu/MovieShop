@@ -25,7 +25,30 @@ class HomeController extends Controller
     public function index()
     {
         $movies = DB::table('movies') -> get();
-
-        return view('home', ['movies' => $movies]);
+        $genres = HomeController::getGenres();
+        error_log($genres);
+        return view('home', ['movies' => $movies, 'genres' => $genres]);
     }
+
+    public function getByGenre(Request $request){
+        $category = $request -> input('genre');
+        $moviesByGenre = DB::table('movies') -> where('category', $category) -> get();
+        $genres = HomeController::getGenres();
+        return view('home', ['movies' => $moviesByGenre, 'genres' => $genres]);
+    }
+
+
+
+
+
+
+
+
+
+    // Private functions
+    private function getGenres(){
+        $genres = DB::table('movies') -> select('category as genre') -> get();
+        return $genres;
+    }
+    
 }
