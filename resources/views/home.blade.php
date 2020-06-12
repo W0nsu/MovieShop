@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="row row-cols-1 row-cols-md-3 ml-0 mr-0">
     @foreach ($movies as $movie)
     <div class="col mb-4 container">
@@ -12,7 +11,7 @@
             <p class="card-text">Category: {{$movie->category}}</p>
             <p class="card-text">Year of production: {{$movie->production_year}}</p>
             <p class="card-text">Price: {{$movie->price}}$</p>
-            <a href="#" class="btn btn-success">Add to card</a>
+            <a href="{{ route('add',['id'=> $movie->id])}}" class="btn btn-success">Add to card</a>
         </div>
       </div>
     </div>
