@@ -60,6 +60,7 @@ class HomeController extends Controller
     }
     
     public function getCart(){
+        error_log('chuj mi w dupe');
         if (!Session::has('cart')){ 
             return view('shopCart');
         }
