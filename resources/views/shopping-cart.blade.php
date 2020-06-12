@@ -19,9 +19,7 @@
                 @foreach($movies as $movie)
                      <!-- PRODUCT -->
                      <div class="row">
-                         <div class="col-12 col-sm-12 col-md-2 text-center">
-                                 <img class="img-responsive" src="http://placehold.it/120x80" alt="prewiew" width="120" height="80">
-                         </div>
+                         
                          <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
                              <h4 class="product-name"><strong>{{ $movie['item']['title'] }}</strong></h4>
                              
@@ -46,9 +44,7 @@
                      <!-- END PRODUCT -->
                     @endforeach
                  <div class="pull-right">
-                     <a href="" class="btn btn-outline-secondary pull-right">
-                         Update shopping cart
-                     </a>
+                     
                  </div>
              </div>
              <div class="card-footer">
@@ -72,11 +68,20 @@
          </div>
  </div>
 @else
-<div class="row">
-    <div class="col-sn-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-        <h2>No items in Cart</h2>
+<div class="container">
+    <div class="card shopping-cart">
+             <div class="card-header bg-dark text-light">
+                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                 Shipping cart
+                 <a href="{{ url('/') }}" class="btn btn-outline-info btn-sm pull-right">Continue shopping</a>
+                 <div class="clearfix"></div>
+             </div>
+             <div class="card-body">
+                     No items in cart!
+             </div>
     </div>
 </div>
+
 @endif
 @endsection
 
