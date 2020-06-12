@@ -66,7 +66,7 @@
                         <ul class="navbar-nav ml-auto">
                             <!-- ShoppingCart -->
                             <li class = "nav-item">
-                            <a class="nav-link" href="{{ route('shopCart') }}"><i class="fa fa-shopping-cart"></i> Shopping Cart
+                            <a class="nav-link" href="{{ route('shoppingCart') }}"><i class="fa fa-shopping-cart"></i> Shopping Cart
                                     <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty: ''}}</span></a>
                             </li>
                             <!-- Authentication Links -->

@@ -48,25 +48,5 @@ class HomeController extends Controller
         return $genres;
     }
     
-    //Adding new movie to cart
-    public function getAddToCart(Request $request, $id){
-        $movie = Movie::find($id);
-        $oldCart = Session::has('cart') ? Session::get('cart') : null;
-        $cart = new Cart($oldCart);
-        $cart -> add($movie, $movie->id);
-        
-        $request->session()->put('cart',$cart);
-        redirect('/home');
-    }
-    
-    public function getCart(){
-        if (!Session::has('cart')){ 
-            return view('shopCart');
-        }
 
-        $oldCart = Session::get('cart');
-        $cart = new Cart($oldCart);
-        return view('shopCart', ['movies' => $cart->items, 'totalPrice'=>$cart->totalPrice]);
-    }
-    
 }
