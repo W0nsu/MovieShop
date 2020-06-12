@@ -20,6 +20,7 @@ class CreateMoviesTable extends Migration
             $table->integer('production_year');
             $table->text('description');
             $table->float('price');
+            $table->string('path');
         });
     }
 

@@ -44,7 +44,7 @@ class HomeController extends Controller
     }
     // Private functions
     private function getGenres(){
-        $genres = DB::table('movies') -> select('category as genre') -> get();
+        $genres = Movie::select('category as genre') -> get();
         return $genres;
     }
     
