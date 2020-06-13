@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ URL::to('css/app.css') }}" rel="stylesheet">
+    <link href="{{ URL::to('css/style.css') }}" rel="stylesheet">
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -31,7 +31,7 @@
 <body>
     <!-- Navbar -->
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                    MovieShop
@@ -86,6 +86,7 @@
         </nav>
 
         <main class="py-4">
+            <img src=".\photos\movieshop.jpg" class="img-fluid rounded mx-auto d-block" alt="Responsive image">
             @yield('content')
         </main>
      

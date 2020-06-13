@@ -1,18 +1,52 @@
 @extends('layouts.app')
 
-@section('content')
+@section('title')
+    Home page
+@endsection
 
-<div class="row row-cols-1 row-cols-md-3" style="width: 100rem;">
+
+
+@section('content')
+<div class="row row-cols-1 row-cols-md-3 ml-0 mr-0 mt-5">
+    <!-- Display all of movies from database -->
     @foreach ($movies as $movie)
-    <div class="col mb-4">
-      <div class="card h-100">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
+    <div class="col mb-5 container">
+      <div class="card pl-3 pt-3 row-cols-2">
+        <img src="{{URL::asset('photos/')}}/{{$movie->path}}" alt="..." class="card-img-top img-thumbnail col-sm center" style="width: 200px; height:300px;">
+        <div class="card-body col-sm w-100">
             <h3 class="card-title">{{$movie->title}}</h5>
             <p class="card-text">Category: {{$movie->category}}</p>
             <p class="card-text">Year of production: {{$movie->production_year}}</p>
             <p class="card-text">Price: {{$movie->price}}$</p>
-            <a href="#" class="btn btn-success">Add to card</a>
+            
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#movieID{{$movie->id}}">
+              Description
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade mt-5" id="movieID{{$movie->id}}" tabindex="-1" role="dialog" aria-labelledby="movieID{{$movie->id}}Title" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="movieID{{$movie->id}}Title">{{$movie->title}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    {{$movie->description}}
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Button add to cart-->
+            <a href="{{ route('add',['id'=> $movie->id])}}" class="btn btn-success">Add to cart</a>
+
         </div>
       </div>
     </div>

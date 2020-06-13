@@ -21,5 +21,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/home/{genre}', 'HomeController@getByGenre')->name('home');
+Route::get('/home/{genre}', 'HomeController@getByGenre')->name('genre');
 
+Route::get('/home/Add-to-cart/{id}', 'CartController@getAddToCart')->name('add');
+
+Route::get('/home/substract-from-cart/{id}', 'CartController@getSubstractedCart')->name('substract');
+
+Route::get('/home/shop/Cart', 'CartController@getCart')->name('shoppingCart');

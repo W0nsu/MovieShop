@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ URL::to('css/app.css') }}" rel="stylesheet">
+    <link href="{{ URL::to('css/style.css') }}" rel="stylesheet">
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -31,7 +31,7 @@
 <body>
     <!-- Navbar -->
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                    MovieShop
@@ -40,34 +40,40 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
                   <ul class="navbar-nav">
-                    <li class="nav-item active">
-                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only"></span></a>
                     </li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <li class="nav-item dropdown ">
+                      <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Categories
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Comedy</a>
-                        <a class="dropdown-item" href="#">Drama</a>
-                        <a class="dropdown-item" href="#">Thriller</a>
+                        @php
+                            $sortedGenres = [];
+                            foreach ($genres as $arrGenre) {
+                                array_push($sortedGenres, $arrGenre);
+                            }
+                            $sortedGenres = array_unique($sortedGenres)
+                        @endphp
+                        @foreach ($sortedGenres as $genre)
+                            <a class="dropdown-item" href="{{ route('genre',['genre'=> $genre->genre])}}">{{$genre->genre}}</a>
+                        @endforeach
                       </div>
                     </li>
                   </ul>
                 </div>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                            
-                    </ul>       
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">     
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
                             <!-- ShoppingCart -->
                             <li class = "nav-item">
-                                    <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i> Shopping Cart</a>
+                            <a class="nav-link" href="{{ route('shoppingCart') }}"><i class="fa fa-shopping-cart"></i> Shopping Cart
+                                    <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty: ''}}</span></a>
                             </li>
+                            <!-- End ShoppingCart -->
+
                             <!-- Authentication Links -->
                             @guest
                                 <li class="nav-item">
@@ -84,7 +90,7 @@
                                         <i class="fa fa-user"></i> {{ Auth::user()->name }} <span class="caret"></span>
                                     </a>
 
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">
@@ -97,16 +103,27 @@
                                     </div>
                                 </li>
                             @endguest
-                        </ul>            
+                            <!-- End Authentication Links -->
+                        </ul>
+                        <!-- End Right Side Of Navbar -->            
                  </div>
              </div>
         </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-     
-        @yield('srcipts')
     </div>
+    <!-- End of navbar -->
+
+    <!-- main content -->
+    <main class="py-4">
+            @yield('content')
+    </main>
+    <!-- End main content -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <p>Paweł Wąsowski & Artur Spychalla CDV 2020</p>
+    </div>
+    <!-- End of Copyright -->
+    @yield('srcipts')
+    
 </body>
 </html>
