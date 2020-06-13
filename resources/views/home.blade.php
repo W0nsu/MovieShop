@@ -7,12 +7,12 @@
 
 
 @section('content')
-<div class="row row-cols-1 row-cols-md-3 ml-0 mr-0">
+<div class="row row-cols-1 row-cols-md-3 ml-0 mr-0 mt-5">
     <!-- Display all of movies from database -->
     @foreach ($movies as $movie)
     <div class="col mb-5 container">
       <div class="card pl-3 pt-3 row-cols-2">
-        <img src="{{URL::asset('photos/')}}/{{$movie->path}}" class="card-img-top" alt="..." class="img-thumbnail col-sm center" style="width: 200px; height:300px;">
+        <img src="{{URL::asset('photos/')}}/{{$movie->path}}" alt="..." class="card-img-top img-thumbnail col-sm center" style="width: 200px; height:300px;">
         <div class="card-body col-sm w-100">
             <h3 class="card-title">{{$movie->title}}</h5>
             <p class="card-text">Category: {{$movie->category}}</p>
@@ -25,7 +25,7 @@
             </button>
 
             <!-- Modal -->
-            <div class="modal fade" id="movieID{{$movie->id}}" tabindex="-1" role="dialog" aria-labelledby="movieID{{$movie->id}}Title" aria-hidden="true">
+            <div class="modal fade mt-5" id="movieID{{$movie->id}}" tabindex="-1" role="dialog" aria-labelledby="movieID{{$movie->id}}Title" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">

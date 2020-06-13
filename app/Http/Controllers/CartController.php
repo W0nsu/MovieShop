@@ -24,7 +24,6 @@ class CartController extends Controller
         $cart -> add($movie, $movie->id);
         
         $request->session()->put('cart',$cart);
-        //dd($request->session()->get('cart'));
         return redirect()->route('home');
     }
 
@@ -34,7 +33,11 @@ class CartController extends Controller
         $cart = new Cart($oldCart);
         $cart -> substractOneMovie($id);
 
-        Session::put('cart', $cart);
+        if(count($cart->items) > 0){
+            Session::put('cart', $cart);
+        }else{
+            Session::forget('cart');
+        }
         return redirect()->route('shoppingCart');
     }
     

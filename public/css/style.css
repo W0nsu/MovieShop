@@ -158,3 +158,10 @@ html, body {
     background-color: #be9f64!important;
     border-color: #be9f64!important;
 }
+
+.navbar {
+    position: fixed!important;
+    top: 0px!important;
+    width: 100%!important;
+    z-index: 999!important;
+}
