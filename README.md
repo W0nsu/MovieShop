@@ -1,3 +1,3 @@
 # MovieShop
 
-One Paragraph of project description goes here
+Online shop with movies. Written in Laravel with use of MySQL Database.
