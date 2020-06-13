@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ URL::to('css/app.css') }}" rel="stylesheet">
+    <link href="{{ URL::to('css/style.css') }}" rel="stylesheet">
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -40,19 +40,21 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav">
-                    <li class="nav-item active">
-                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Categories
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Comedy</a>
-                        <a class="dropdown-item" href="#">Drama</a>
-                        <a class="dropdown-item" href="#">Thriller</a>
+                        <a class="dropdown-item" href="{{ route('genre',['genre'=> 'Comedy'])}}">Comedy</a>
+                        <a class="dropdown-item" href="{{ route('genre',['genre'=> 'Drama'])}}">Drama</a>
+                        <a class="dropdown-item" href="{{ route('genre',['genre'=> 'Fantasy'])}}">Fantasy</a>
+                        <a class="dropdown-item" href="{{ route('genre',['genre'=> 'Sci-Fi'])}}">Sci-Fi</a>
+                        <a class="dropdown-item" href="{{ route('genre',['genre'=> 'Action'])}}">Action</a>
                       </div>
                     </li>
                   </ul>
@@ -102,12 +104,18 @@
                  </div>
              </div>
         </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-     
-        @yield('srcipts')
     </div>
+    
+    <main class="py-4">
+            @yield('content')
+    </main>
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <p>Paweł Wąsowski & Artur Spychalla CDV 2020</p>
+    </div>
+        
+    @yield('srcipts')
+    
 </body>
 </html>

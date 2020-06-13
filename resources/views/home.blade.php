@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('title')
+    Home page
+@endsection
+
+
+
 @section('content')
 <div class="row row-cols-1 row-cols-md-3 ml-0 mr-0">
     @foreach ($movies as $movie)
