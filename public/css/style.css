@@ -1,6 +1,6 @@
 html, body {
-    background-color: #ffffff;
-    color: #636b6f;
+    background-color: #a54e4e!important;
+    color: #ffffff;
     font-family: 'Nunito', sans-serif;
     font-weight: 200;
     height: 100vh;
@@ -9,6 +9,10 @@ html, body {
 
 .full-height {
     height: 100vh;
+}
+
+.text-muted {
+    color: #ffffff!important;
 }
 
 .flex-center {
@@ -49,3 +53,71 @@ html, body {
     margin-bottom: 30px;
 }
 
+.pt-4, .py-4 {
+    padding-top: 1.5rem!important;
+    background-color: #a54e4e;
+}
+
+.pb-3, .py-3 {
+    padding-bottom: 1rem!important;
+    background-color: 000000;
+    color: rgb(80, 55, 55);
+}
+
+.bg-dark {
+    background-color: #923434!important;
+}
+
+.pb-3, .py-3 {
+    padding-bottom: 1rem!important;
+    background-color: #a54e4e;
+    color: #000000;
+}
+
+.card {
+    color: #fff!important;
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #7c1f2f!important;
+    background-clip: border-box;
+    border: 3px solid rgba(0,0,0,.125)!important;
+    border-radius: .25rem;
+}
+
+.navbar-expand-md .navbar-nav .dropdown-menu {
+    position: absolute;
+    background-color: #343a40;
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: .25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: rgb(255, 255, 255, 0.418)!important;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+}
+
+.modal-content {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #a54e4e!important;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: .3rem;
+    outline: 0;
+}

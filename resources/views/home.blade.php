@@ -17,6 +17,7 @@
             <p class="card-text">Category: {{$movie->category}}</p>
             <p class="card-text">Year of production: {{$movie->production_year}}</p>
             <p class="card-text">Price: {{$movie->price}}$</p>
+            
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#movieID{{$movie->id}}">
               Description
@@ -35,12 +36,12 @@
                     {{$movie->description}}
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
                   </div>
                 </div>
               </div>
             </div>
-            <a href="{{ route('add',['id'=> $movie->id])}}" class="btn btn-success">Add to card</a>
+            <a href="{{ route('add',['id'=> $movie->id])}}" class="btn btn-success">Add to cart</a>
         </div>
       </div>
     </div>

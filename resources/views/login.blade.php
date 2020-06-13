@@ -9,17 +9,16 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-        <!-- Styles -->
-        <link href="{{ HTML::style('view/styles/style.css') }}">
     </head>
     <body>
+        
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}"  >Login</a>
 
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
@@ -29,7 +28,7 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
+                <div class="title m-b-md btn btn-success">
                     Login
                 </div>
 
@@ -38,7 +37,7 @@
                         @csrf
                         <input type="text" placeholder="Login" name="login">
                         <input type="password" placeholder="Password" name="password">
-                        <button type="submit">Login!</button>
+                        <button type="submit" >Login!</button>
                     </form>
                 </div>
             </div>
