@@ -86,7 +86,7 @@
         </nav>
 
         <main class="py-4">
-            
+            <img src=".\photos\movieshop.jpg" class="img-fluid rounded mx-auto d-block" alt="Responsive image">
             @yield('content')
         </main>
      

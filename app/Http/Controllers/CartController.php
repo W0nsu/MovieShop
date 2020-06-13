@@ -28,6 +28,7 @@ class CartController extends Controller
         return redirect()->route('home');
     }
 
+    //Deleting movie from the cart
     public function getSubstractedCart($id){
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
@@ -39,13 +40,10 @@ class CartController extends Controller
     
     //Shopping Cart
     public function getCart(){
-        
-        if (!Session::has('cart')){  
-            return view('shopping-cart');    
-        }
-        
+      
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
-        return view('shopping-cart', ['movies' => $cart->items, 'totalPrice'=>$cart->totalPrice]);
+        $genres = app('App\Http\Controllers\HomeController')->getGenres();
+        return view('shopping-cart', ['movies' => $cart->items, 'totalPrice'=>$cart->totalPrice, 'genres' => $genres]);
     }
 }

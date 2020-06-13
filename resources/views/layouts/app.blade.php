@@ -50,20 +50,21 @@
                         Categories
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{ route('genre',['genre'=> 'Comedy'])}}">Comedy</a>
-                        <a class="dropdown-item" href="{{ route('genre',['genre'=> 'Drama'])}}">Drama</a>
-                        <a class="dropdown-item" href="{{ route('genre',['genre'=> 'Fantasy'])}}">Fantasy</a>
-                        <a class="dropdown-item" href="{{ route('genre',['genre'=> 'Sci-Fi'])}}">Sci-Fi</a>
-                        <a class="dropdown-item" href="{{ route('genre',['genre'=> 'Action'])}}">Action</a>
+                        @php
+                            $sortedGenres = [];
+                            foreach ($genres as $arrGenre) {
+                                array_push($sortedGenres, $arrGenre);
+                            }
+                            $sortedGenres = array_unique($sortedGenres)
+                        @endphp
+                        @foreach ($sortedGenres as $genre)
+                            <a class="dropdown-item" href="{{ route('genre',['genre'=> $genre->genre])}}">{{$genre->genre}}</a>
+                        @endforeach
                       </div>
                     </li>
                   </ul>
                 </div>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                            
-                    </ul>       
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">     
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
                             <!-- ShoppingCart -->
@@ -71,6 +72,8 @@
                             <a class="nav-link" href="{{ route('shoppingCart') }}"><i class="fa fa-shopping-cart"></i> Shopping Cart
                                     <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty: ''}}</span></a>
                             </li>
+                            <!-- End ShoppingCart -->
+
                             <!-- Authentication Links -->
                             @guest
                                 <li class="nav-item">
@@ -87,7 +90,7 @@
                                         <i class="fa fa-user"></i> {{ Auth::user()->name }} <span class="caret"></span>
                                     </a>
 
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">
@@ -100,21 +103,26 @@
                                     </div>
                                 </li>
                             @endguest
-                        </ul>            
+                            <!-- End Authentication Links -->
+                        </ul>
+                        <!-- End Right Side Of Navbar -->            
                  </div>
              </div>
         </nav>
     </div>
-    
+    <!-- End of navbar -->
+
+    <!-- main content -->
     <main class="py-4">
             @yield('content')
     </main>
+    <!-- End main content -->
 
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2020 Copyright:
         <p>Paweł Wąsowski & Artur Spychalla CDV 2020</p>
     </div>
-        
+    <!-- End of Copyright -->
     @yield('srcipts')
     
 </body>

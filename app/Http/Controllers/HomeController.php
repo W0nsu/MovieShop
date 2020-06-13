@@ -33,7 +33,7 @@ class HomeController extends Controller
         error_log($genres);
         return view('home', ['movies' => $movies, 'genres' => $genres]);
     }
-
+    //Grouping by genre
     public function getByGenre(Request $request){
         $category = $request -> path();
         $category = substr($category, 5);
@@ -42,8 +42,8 @@ class HomeController extends Controller
         $genres = HomeController::getGenres();
         return view('home', ['movies' => $moviesByGenre, 'genres' => $genres]);
     }
-    // Private functions
-    private function getGenres(){
+    
+    public function getGenres(){
         $genres = Movie::select('category as genre') -> get();
         return $genres;
     }
