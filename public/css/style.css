@@ -135,12 +135,26 @@ html, body {
 
 .btn-success {
     color: #fff;
-    background-color: #28a745;
-    border-color: #28a745;
+    background-color: #51b367;
+    border-color: #51b367;
     margin-top: 10px;
 }
 
 .btn-info {
     color: #fff;
     margin-top: 10px;
+    background-color: #be9f64!important;
+    border-color: #be9f64!important;
+}
+
+.btn-info:hover{
+    background-color: #b89149!important;
+    border-color: #b99758!important;
+}
+
+.btn-dark{
+    color: #fff;
+    margin-top: 10px;
+    background-color: #be9f64!important;
+    border-color: #be9f64!important;
 }

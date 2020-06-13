@@ -38,7 +38,7 @@
                     {{$movie->description}}
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
                   </div>
                 </div>
               </div>
