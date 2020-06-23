@@ -4,8 +4,6 @@
     Home page
 @endsection
 
-
-
 @section('content')
 <div class="row row-cols-1 row-cols-md-3 ml-0 mr-0 mt-5">
     <!-- Display all of movies from database -->
@@ -14,10 +12,10 @@
       <div class="card pl-3 pt-3 row-cols-2">
         <img src="{{URL::asset('photos/')}}/{{$movie->path}}" alt="..." class="card-img-top img-thumbnail col-sm center" style="width: 200px; height:300px;">
         <div class="card-body col-sm w-100">
-            <h3 class="card-title">{{$movie->title}}</h5>
-            <p class="card-text">Category: {{$movie->category}}</p>
-            <p class="card-text">Year of production: {{$movie->production_year}}</p>
-            <p class="card-text">Price: {{$movie->price}}$</p>
+            <h3 class="card-title" > {{$movie->title}}</h5>
+            <p class="card-text" > Category: {{$movie->category}}</p>
+            <p class="card-text"> Year of production: {{$movie->production_year}}</p>
+            <p class="card-text" > Price: {{$movie->price}}$</p>
             
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#movieID{{$movie->id}}">
@@ -45,7 +43,9 @@
             </div>
 
             <!-- Button add to cart-->
-            <a href="{{ route('add',['id'=> $movie->id])}}" class="btn btn-success">Add to cart</a>
+            <a href="{{ route('add',['id'=> $movie->id]) }}" class="btn btn-success">Add to cart</a>
+            <a href = 'delete/{{ $movie->id }}' class="btn btn-danger">Delete</a>
+            <a href = 'home/movie/edit/{{ $movie->id }}' class="btn btn-warning">Edit</a>
 
         </div>
       </div>

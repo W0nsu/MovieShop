@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Movie extends Model
 {
-    protected $fillable = ['imagePath','title','category','production_year','description','price'];
+    protected $fillable = ['path','title','category','production_year','description','price'];
 }

@@ -33,7 +33,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('') }}">
                    MovieShop
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -45,6 +45,11 @@
                     <li class="nav-item">
                       <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only"></span></a>
                     </li>
+                    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('home/movie/insert') }}">Add movie <span class="sr-only"></span></a>
+                      </li>
+                    </div>
                     <li class="nav-item dropdown ">
                       <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Categories
@@ -62,6 +67,7 @@
                         @endforeach
                       </div>
                     </li>
+                    
                   </ul>
                 </div>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">     

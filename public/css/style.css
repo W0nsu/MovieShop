@@ -159,6 +159,33 @@ html, body {
     border-color: #be9f64!important;
 }
 
+.btn-danger {
+    color: #fff;
+    background-color: #ca3636!important;
+    border-color: #ca3636!important;
+    margin-top: 10px;
+}
+
+.btn-danger:hover{
+    background-color: #c72121!important;
+    border-color: #c72121!important;
+}
+
+.btn-warning {
+    color: #fff!important;
+    background-color: #535cda!important;
+    border-color: #535cda!important;
+    margin-top: 10px;
+}
+
+.btn-warning:hover {
+    color: #fff!important;
+    background-color: #2f3ad8!important;
+    border-color: #2f3ad8!important;
+    margin-top: 10px;
+}
+
+
 .navbar {
     position: fixed!important;
     top: 0px!important;
