@@ -19,7 +19,8 @@ class MovieController extends Controller
     public function index($id){
         
         $genres = app('App\Http\Controllers\HomeController')->getGenres();
-        $movies = DB::select('select * from movies where id = ?',[$id]);
+        // $movies = DB::select('select * from movies where id = ?',[$id]);
+        $movies = Movie::where('id', $id)->get();
         return view('edit',['movies'=>$movies, 'genres' => $genres]);
         }
     
