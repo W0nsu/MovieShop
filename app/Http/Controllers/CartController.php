@@ -47,6 +47,7 @@ class CartController extends Controller
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
         $genres = app('App\Http\Controllers\HomeController')->getGenres();
-        return view('shopping-cart', ['movies' => $cart->items, 'totalPrice'=>$cart->totalPrice, 'genres' => $genres]);
+        return view('shopping-cart', ['movies' => $cart->items, 
+        'totalPrice'=>$cart->totalPrice, 'genres' => $genres]);
     }
 }

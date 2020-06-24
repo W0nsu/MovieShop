@@ -44,7 +44,9 @@
 
             <!-- Button add to cart-->
             <a href="{{ route('add',['id'=> $movie->id]) }}" class="btn btn-success">Add to cart</a>
+            <!-- Button delete movie-->
             <a href = 'delete/{{ $movie->id }}' class="btn btn-danger">Delete</a>
+            <!-- Button edit movie-->
             <a href = 'home/movie/edit/{{ $movie->id }}' class="btn btn-warning">Edit</a>
 
         </div>

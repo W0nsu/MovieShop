@@ -16,6 +16,7 @@ class MovieController extends Controller
         $this->middleware('auth');
     }
 
+    //Getting genres and movies
     public function index($id){
         
         $genres = app('App\Http\Controllers\HomeController')->getGenres();
@@ -29,6 +30,7 @@ class MovieController extends Controller
         return view('create', ['genres' => $genres]);
     }
 
+    //Insert new movie to the database
     public function insert(Request $request){
         $path = $request->input('path');
         $title = $request->input('title');
@@ -44,11 +46,14 @@ class MovieController extends Controller
         return redirect()->route('home');
     }
 
+    //Delete movie from database
     public function destroy($id) {
         $deleting = Movie::where('id',$id)->delete();
         return redirect()->route('home');
         }
 
+
+    //Edit movie
     public function edit(Request $request,$id) {
         $path = $request->input('path');
         $title = $request->input('title');
