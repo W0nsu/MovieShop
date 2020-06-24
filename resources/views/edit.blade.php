@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Add new movie
+    Edit movie
 @endsection
 
 @section('content')

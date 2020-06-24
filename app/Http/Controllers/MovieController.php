@@ -19,7 +19,6 @@ class MovieController extends Controller
     public function index($id){
         
         $genres = app('App\Http\Controllers\HomeController')->getGenres();
-        // $movies = DB::select('select * from movies where id = ?',[$id]);
         $movies = Movie::where('id', $id)->get();
         return view('edit',['movies'=>$movies, 'genres' => $genres]);
         }
@@ -46,7 +45,7 @@ class MovieController extends Controller
     }
 
     public function destroy($id) {
-        DB::delete('delete from movies where id = ?',[$id]);
+        $deleting = Movie::where('id',$id)->delete();
         return redirect()->route('home');
         }
 
@@ -58,8 +57,9 @@ class MovieController extends Controller
         $description = $request->input('description');
         $price = $request->input('price');
 
-        DB::update('update movies set path = ?, title=?, category=?, production_year=?, description=?, price=? where id = ?',
-        [$path, $title, $category, $production_year, $description, $price, $id]);
+        $update = Movie::where('id', $id)->update(['path' => $path, 'title'=> $title, 
+        'category' => $category, 'production_year' => $production_year, 'description' => $description, 'price'=> $price]);
+
         return redirect()->route('home');
     }
 }
